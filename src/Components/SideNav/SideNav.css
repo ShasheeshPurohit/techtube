@@ -1,0 +1,35 @@
+.nav-panel-icons{
+    display: flex;
+    flex-direction: column;
+}
+ 
+.nav-panel-icons > i{
+    margin-top: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav-panel-icons > i:hover{
+    color: white;
+}
+
+.nav-panel-icons > p{
+    color: rgb(31, 31, 31);
+    font-weight: bold;
+}
+
+.sidebar-links:link,
+.sidebar-links:visited{
+    color: rgba(255, 255, 255, 0.815);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+.sidebar-links:hover{
+    color: white;
+}
+
+.sidebar-links > i{
+    font-size: 1.5rem;
+}

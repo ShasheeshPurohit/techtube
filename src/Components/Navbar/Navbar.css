@@ -1,0 +1,32 @@
+.nav-list-mobile{
+    color: white;
+    list-style: none;
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.nav-list-mobile > li{
+    margin-right: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+} 
+
+.brand-icons > i{
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.brand-icons > .logo{
+    color: red;
+}
+
+.nav-button{
+    display: none;  
+}
+
+@media only screen and (max-width:500px){
+    .nav-button{
+       display: initial;
+    }
+}
