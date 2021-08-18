@@ -36,18 +36,23 @@
     justify-content: space-between;
 }
 
-.video-author-details > .like-button{
+.video-author-details > .icon-buttons{
     font-size: 1.8rem;
 }
 
-.like-button > i{
+.icon-buttons > i:hover{
+    color: red;
+    transform: scale(1.1);
+}
+
+.icon-buttons > i{
     margin-right: 1.5rem;
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.like-button > i:hover{
-    transform: scale(1.2);
+.icon-buttons > i:active{
+    transform: scale(0.8);
 }
 
 .video-player-frame{
@@ -88,7 +93,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    transition: all ease-in 0.5s;
+    transition: all ease-in-out 0.2s;
+}
+
+.playlists-name-section{
+    margin-top: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.playlist-name-list{
+    list-style-type: none;
+    padding: 0;
+}  
+
+.playlist-name-list input{
+    margin-right: 0.5rem;
 }
 
 @media only screen and (max-width:1000px){
@@ -98,7 +118,7 @@
        
     }
 
-    .video-author-details > .like-button{
+    .video-author-details > .icon-buttons{
         font-size: 1.6rem;
     }
 }
@@ -110,7 +130,7 @@
        
     }
 
-    .video-author-details > .like-button{
+    .video-author-details > .icon-buttons{
         font-size: 1.4rem;
     }
 
@@ -123,7 +143,7 @@
        
     }
 
-    .video-author-details > .like-button{
+    .video-author-details > .icon-buttons{
         font-size: 1.2rem;
     }
 }

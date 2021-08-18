@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {PlayListProvider} from "./Context/PlaylistContext"
+import { AuthProvider } from './Context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <AuthProvider>
       <PlayListProvider>
       <App />
       </PlayListProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

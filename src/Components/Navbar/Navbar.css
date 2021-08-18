@@ -1,16 +1,34 @@
 .nav-list-mobile{
     color: white;
+    position: relative;
     list-style: none;
     display: flex;
     margin-top: 0.5rem;
 }
 
-.nav-list-mobile > li{
+.brand-link:link,
+.brand-link:visited{
+    color: red;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.nav-list-mobile > li ,
+.nav-list-mobile > li {
     margin-right: 0.5rem;
     font-weight: 500;
+    color: white;
+    text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+   
 } 
+
+.nav-list-mobile > li:hover{
+    border-bottom: 2px solid white;
+}
 
 .brand-icons > i{
     margin-right: 0.5rem;
@@ -23,6 +41,52 @@
 
 .nav-button{
     display: none;  
+}
+
+.login-box{
+    padding: 0.5rem 0 1rem 0;
+    border-radius: 10px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    min-height: 8rem;
+    min-width: 16rem;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: visibility 0s linear 300ms, opacity 300ms;
+    z-index: 999;
+}
+
+.login-box > input{
+    outline: none;
+    margin-top: 1rem;
+    width: 70%;
+}
+
+.signup-box{
+    padding: 0.5rem 0 1rem 0;
+    border-radius: 10px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    min-height: 8rem;
+    min-width: 16rem;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: visibility 0s linear 300ms, opacity 300ms;
+    z-index: 999;
+}
+
+.signup-box > input{
+    outline: none;
+    margin-top: 1rem;
+    width: 70%;
 }
 
 @media only screen and (max-width:500px){

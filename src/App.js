@@ -5,6 +5,9 @@ import Home from "./pages/Home/Home"
 import VideoDetail from './pages/VideoDetail/VideoDetail';
 import Playlist from './pages/Playlist/Playlist';
 import {Routes, Route } from "react-router-dom";
+import Login from './pages/Login/Login';
+import SignUp from './pages/Signup/Signup';
+import Liked from './pages/LikedVideos/Liked';
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/videos/:videoId" element={<VideoDetail/>}/>
         <Route path="/playlists" element={<Playlist/>}/>
+        <Route path="/liked" element={<Liked/>}/>
       </Routes>
 
     </div>

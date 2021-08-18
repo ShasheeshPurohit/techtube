@@ -9,7 +9,7 @@ export default function SideNav(){
             <p>Home</p></Link>
             <Link className="sidebar-links" to="/playlists"><i className="fas fa-list"></i>
             <p>Playlists</p></Link>
-            <Link className="sidebar-links" to="/">
+            <Link className="sidebar-links" to="/liked">
             <i className="fas fa-thumbs-up"></i>
             <p>Liked</p>
             </Link>
