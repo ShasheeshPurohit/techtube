@@ -83,9 +83,11 @@ export default function VideoDetail(){
                               </div>
                               
                             </div>
-                            <div className="video-reviews-detailPage">
+                            {/* <div className="video-reviews-detailPage">
                                 <h1>Comments:</h1>
-                            </div></>)}
+                            </div> */}
+                            </>
+                            )}
                           
                         </div>
         
