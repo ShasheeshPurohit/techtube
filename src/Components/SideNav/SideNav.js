@@ -13,10 +13,10 @@ export default function SideNav(){
             <i className="fas fa-thumbs-up"></i>
             <p>Liked</p>
             </Link>
-            <Link className="sidebar-links" to="/">
+            {/* <Link className="sidebar-links" to="/">
             <i className="fas fa-history"></i>
             <p>History</p>
-            </Link>
+            </Link> */}
             </div>
     )
 }

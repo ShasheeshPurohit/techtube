@@ -1,0 +1,37 @@
+.bottom-nav-panel-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+ 
+.bottom-nav-panel-icons > i{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.bottom-nav-panel-icons > i:hover{
+    color: white;
+}
+
+.bottom-nav-panel-icons > p{
+    color: rgb(31, 31, 31);
+    font-weight: bold;
+}
+
+.bottom-sidebar-links:link,
+.bottom-sidebar-links:visited{
+    color: rgba(255, 255, 255, 0.815);
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+
+}
+
+.bottom-sidebar-links:hover{
+    color: white;
+}
+
+.bottom-sidebar-links > i{
+    font-size: 1.5rem;
+}

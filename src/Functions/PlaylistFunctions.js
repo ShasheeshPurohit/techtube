@@ -27,6 +27,7 @@ export const deleteVideoHandler = async (playlistName, videoId, token,dispatch) 
 export const addToPlaylist = async (playlistName, video, token, dispatch) => {
   console.log(playlistName, video._id, token)
   try {
+    console.log("Added bhaiii!")
     const response = await axios.post(
       `${baseurl}/api/playlist/${playlistName}/${video._id}`,{},
       { headers: { authorization: token } }

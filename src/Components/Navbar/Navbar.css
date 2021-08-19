@@ -43,6 +43,17 @@
     display: none;  
 }
 
+.auth-field{
+    border-radius: 10px;
+    padding: 0.2rem 0.5rem;
+    outline: none;
+    border: none;
+}
+
+.auth-field:focus{
+    background-color: rgba(231, 231, 231, 0.808);
+}
+
 .login-box{
     padding: 0.5rem 0 1rem 0;
     border-radius: 10px;
@@ -87,6 +98,21 @@
     outline: none;
     margin-top: 1rem;
     width: 70%;
+}
+
+.signup-button,.login-button{
+    margin-top: 1rem;
+    border-radius: 10px 5px 10px 5px;
+    outline: none;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+}
+
+.signup-button:hover ,.login-button:hover{
+    background-color: black;
+
 }
 
 @media only screen and (max-width:500px){

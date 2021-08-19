@@ -2,6 +2,7 @@
   text-align: center;
   background-color: rgb(17, 17, 17);
   min-height: 100vh;
+  width: 100vw;
 }
 
 .App-logo {
@@ -36,5 +37,20 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+
+@media only screen and (max-width:600px){
+  .bottom-nav{
+   position: fixed !important;
+   bottom: 0rem;
+   width: 100%;
+   background-color: red;
+   height: 4rem;
+  }
+  .App{
+    margin-bottom: 2rem;
   }
 }

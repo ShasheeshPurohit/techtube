@@ -7,9 +7,9 @@ import {Link} from "react-router-dom";
 export default function Liked(){
 
 
-    const {state} = useAuth();
+    const {state, token} = useAuth();
 
-    console.log(state.likedVideos)
+ 
 
     return (
         <div className="liked-layout">
@@ -17,7 +17,7 @@ export default function Liked(){
                 <SideNav/>
             </div>
             <div className="liked-display-section">
-                {state === undefined? "Login to karle bhai":(state.likedVideos === undefined?<Loader/>:(state.likedVideos.length>0?((state.likedVideos.map((video)=>{
+                {token?(state === undefined? <Loader/>:(state.likedVideos === undefined?<Loader/>:(state.likedVideos.length>0?((state.likedVideos.map((video)=>{
                     return(
                         
                         <div className="video-player-home">
@@ -29,7 +29,7 @@ export default function Liked(){
                         
                         </div>
                     )
-                }))):<h1>Like some videos to see them here</h1>))}
+                }))):<h1>Like some videos to see them here</h1>))):<h1>Login to see liked videos</h1>}
             </div>
         </div>
     );

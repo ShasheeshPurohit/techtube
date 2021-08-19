@@ -74,12 +74,12 @@ export default function VideoDetail(){
                               <ul className="playlist-name-list" style={{visibility: playlistBox?"initial":"hidden"}}>
                               {state.playlists === undefined? <Loader/>: (state.playlists.length === 0? "No playlists":(state.playlists.map((playlist)=>{
                                 return(<li><label className="playlist-item" >  
-                                <input type="checkbox"  onChange={()=>setPlaylistName(playlist.playlistName)} />
+                                <input type="checkbox"  onChange={()=>addToPlaylist(playlist.playlistName, displayVideo, token, dispatch)} />
                                    {playlist.playlistName}
                                 </label></li>)
                               })))}
                               </ul>
-                              <button style={{visibility: playlistBox?"initial":"hidden"}}>Add</button>
+                              <button className="playlist-box-close-btn" style={{visibility: playlistBox?"initial":"hidden"}} onClick={()=>setPlaylistBox(!playlistBox)}>Close</button>
                               </div>
                               
                             </div>

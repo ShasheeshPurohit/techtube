@@ -63,18 +63,18 @@ export default function Navbar(){
     </ul>
 
     <div className="login-box" style={{visibility: loginBox?"initial":"hidden"}}>
-      <input className="login-field" placeholder="Username" onChange={(event)=>setLoginUsername(event.target.value)}/>
-      <input className="login-field" placeholder="Password" onChange={(event)=>setLoginPassword(event.target.value)}/>      
-      <button onClick={()=>{
+      <input className="login-field auth-field" placeholder="Username" onChange={(event)=>setLoginUsername(event.target.value)}/>
+      <input className="login-field auth-field" placeholder="Password" onChange={(event)=>setLoginPassword(event.target.value)}/>      
+      <button className="login-button auth-field" onClick={()=>{
         loginHandler (loginUsername, loginPassword)
         setLoginBox(!loginBox)}}>Login</button>
     </div>
     <div className="signup-box" style={{visibility: signupBox?"initial":"hidden"}}>
-    <input className="signup-field" placeholder="Name" onChange={(event)=>setSignupName(event.target.value)}/>
-    <input className="signup-field"  placeholder="Username" onChange={(event)=>setSignupUsername(event.target.value)}/>
-      <input className="signup-field" type="email"  placeholder="Email"onChange={(event)=>setSignupEmail(event.target.value)}/>
-      <input className="signup-field" type="password" placeholder="Password" onChange={(event)=>setSignupPassword(event.target.value)}/> 
-      <button onClick={()=>{SignUpHandler(signupName, signupUsername, signupEmail, signupPassword)
+    <input className="signup-field auth-field" placeholder="Name" onChange={(event)=>setSignupName(event.target.value)}/>
+    <input className="signup-field auth-field"  placeholder="Username" onChange={(event)=>setSignupUsername(event.target.value)}/>
+      <input className="signup-field auth-field" type="email"  placeholder="Email"onChange={(event)=>setSignupEmail(event.target.value)}/>
+      <input className="signup-field auth-field" type="password" placeholder="Password" onChange={(event)=>setSignupPassword(event.target.value)}/> 
+      <button className="signup-button" onClick={()=>{SignUpHandler(signupName, signupUsername, signupEmail, signupPassword)
       setSignupBox(!signupBox)}}>Sign up</button> 
     </div>
   </div>

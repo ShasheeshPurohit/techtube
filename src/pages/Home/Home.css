@@ -78,4 +78,9 @@ h1{
         "vid vid vid vid"
         "vid vid vid vid";
     }
+
+    .video-display{
+        justify-content: center;
+        align-items: center;
+    }
 }

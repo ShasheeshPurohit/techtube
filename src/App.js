@@ -8,6 +8,9 @@ import {Routes, Route } from "react-router-dom";
 import Login from './pages/Login/Login';
 import SignUp from './pages/Signup/Signup';
 import Liked from './pages/LikedVideos/Liked';
+import PlaylistDetail from './pages/PlaylistDetail/PlaylistDetail';
+import SideNav from './Components/SideNav/SideNav';
+import BottomNav from './Components/BottomNav/BottomNav';
 
 function App() {
   return (
@@ -19,8 +22,12 @@ function App() {
         <Route path="/videos/:videoId" element={<VideoDetail/>}/>
         <Route path="/playlists" element={<Playlist/>}/>
         <Route path="/liked" element={<Liked/>}/>
+        <Route path="/playlist/:playlistName" element={<PlaylistDetail/>}/>
       </Routes>
 
+      <div className="bottom-nav">
+        <BottomNav/>
+      </div>
     </div>
   );
 }

@@ -76,8 +76,15 @@
 }
 
 .playlist-create-button{
-    width: 5rem;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.815);
+    border: none;
+    color: white;
+    padding: 0.2rem 0.5rem;
+}
+
+.playlist-create-button:hover{
+    background-color: black;
 }
 
 .playlist-create-box{
@@ -109,6 +116,23 @@
 
 .playlist-name-list input{
     margin-right: 0.5rem;
+}
+
+.playlist-item{
+    display: flex;
+}
+
+.playlist-box-close-btn{
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.815);
+    border: none;
+    color: white;
+    padding: 0.2rem 0.5rem;
+}
+
+.playlist-box-close-btn:hover{
+    background-color: black;
 }
 
 @media only screen and (max-width:1000px){
