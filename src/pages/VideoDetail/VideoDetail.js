@@ -29,7 +29,7 @@ export default function VideoDetail(){
       
       }
       catch(error){
-        // console.log("error")
+        // ("error")
       }
     })();
   }, []);

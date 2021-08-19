@@ -20,7 +20,7 @@ export const AuthProvider = ({children}) => {
           const response = await axios.get(`${baseurl}/api/playlist`, {
             headers: { authorization: token },
           });
-          console.log(response)
+          (response)
           if (response.data.status === "success") {
             dispatch({
               type: "INITIAL_LOAD",
@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
           }
         }
         catch(error){
-            console.log(error)
+            (error)
         }
         })();
       }, [token]);
@@ -39,7 +39,7 @@ export const AuthProvider = ({children}) => {
     //       const response = await axios.get(`${baseurl}/api/history`, {
     //         headers: { authorization: token },
     //       });
-    //       // console.log(response)
+    //       // (response)
     //       if (response.data.status === "success") {
     //         dispatch({
     //           type: "INITIAL_LOAD_HISTORY",
@@ -55,8 +55,8 @@ export const AuthProvider = ({children}) => {
           const response = await axios.get(`${baseurl}/api/liked`, {
             headers: { authorization: token },
           });
-          console.log(response)
-          // console.log(response.data.likedVideos.likedVideos)
+          (response)
+          // (response.data.likedVideos.likedVideos)
           if (response.data.status === "success") {
             dispatch({
               type: "INITIAL_LOAD_LIKED_VIDEOS",
@@ -65,7 +65,7 @@ export const AuthProvider = ({children}) => {
           }
         }
         catch(error){
-            console.log(error)
+            (error)
         }
         })();
       }, [token]);
@@ -96,8 +96,8 @@ export const AuthProvider = ({children}) => {
             return navigate("/")
         }
         }catch(error){
-            console.log(error.response)
-            console.log(error.response.data.status)
+            (error.response)
+            (error.response.data.status)
         }
     }
     return(

@@ -9,7 +9,7 @@ export default function Playlist(){
     const {state, token, dispatch} = useAuth();
     const Navigate = useNavigate();
 
-    console.log(state.playlists)
+    (state.playlists)
     
     return(
         <div>

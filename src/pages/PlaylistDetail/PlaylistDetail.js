@@ -22,7 +22,7 @@ export default function PlaylistDetail(){
     }
 
     const playlist = getPlaylist(state.playlists, playlistName)
-    console.log(playlist)
+    (playlist)
 
     return(
         <div className="playlist-detail-layout">
