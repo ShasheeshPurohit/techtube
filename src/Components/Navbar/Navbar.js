@@ -63,8 +63,8 @@ export default function Navbar(){
     </ul>
 
     <div className="login-box" style={{visibility: loginBox?"initial":"hidden"}}>
-      <input className="login-field auth-field" placeholder="Username" onChange={(event)=>setLoginUsername(event.target.value)}/>
-      <input className="login-field auth-field" placeholder="Password" onChange={(event)=>setLoginPassword(event.target.value)}/>      
+      <input className="login-field auth-field" type="text" placeholder="Username" onChange={(event)=>setLoginUsername(event.target.value)}/>
+      <input className="login-field auth-field" type="email" placeholder="Password" onChange={(event)=>setLoginPassword(event.target.value)}/>      
       <button className="login-button auth-field" onClick={()=>{
         loginHandler (loginUsername, loginPassword)
         setLoginBox(!loginBox)}}>Login</button>
