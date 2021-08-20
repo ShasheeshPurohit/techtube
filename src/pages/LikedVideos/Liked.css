@@ -1,7 +1,7 @@
 .liked-layout{
     display: grid;
     grid-template-columns: 0.18fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas: "nav vid vid vid"
     "nav vid vid vid"
     "nav vid vid vid";
