@@ -31,12 +31,12 @@ export default function Navbar(){
             },
         });
         if(response.status === 200){
-            (username, password)
+            
             return loginHandler(username, password)
         }
     }
     catch(error){
-        (error.response);   
+        // (error.response);   
     }
 }
 

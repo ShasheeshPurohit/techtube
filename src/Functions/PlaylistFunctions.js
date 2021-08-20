@@ -20,14 +20,14 @@ export const deleteVideoHandler = async (playlistName, videoId, token,dispatch) 
       dispatch({type: "REMOVE_FROM_PLAYLIST", payload:{playlistName, videoId}})
     }
   } catch (error) {
-    (error.response);
+    // (error.response);
   }
 };
 
 export const addToPlaylist = async (playlistName, video, token, dispatch) => {
-  (playlistName, video._id, token)
+  // (playlistName, video._id, token)
   try {
-    ("Added bhaiii!")
+    // ("Added bhaiii!")
     const response = await axios.post(
       `${baseurl}/api/playlist/${playlistName}/${video._id}`,{},
       { headers: { authorization: token } }
@@ -36,13 +36,13 @@ export const addToPlaylist = async (playlistName, video, token, dispatch) => {
       dispatch({type: "ADD-VIDEO-TO-PLAYLIST", payload: {playlistName, videoObj: video }})
     }
   } catch (error) {
-    (error.response);
+    // (error.response);
   }
 };
 
 export const createPlaylist = async (playlistName, token, dispatch) => {
   try {
-      ("Aagayaa yahaa")
+      // ("Aagayaa yahaa")
     const response = await axios.post(
       `${baseurl}/api/playlist/${playlistName}`,
       {  },
@@ -54,6 +54,6 @@ export const createPlaylist = async (playlistName, token, dispatch) => {
       dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playlistName })
     }
   } catch (error) {
-    (error.response);
+    // (error.response);
   }
 };
