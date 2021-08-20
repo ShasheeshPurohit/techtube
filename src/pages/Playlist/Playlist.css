@@ -32,7 +32,7 @@ h1{
 }
 
 .playlist-display-section-playlists{
-    margin: 4rem 0 0 2rem;
+   margin: 1rem;
     display: flex;
     flex-wrap: wrap;
 }

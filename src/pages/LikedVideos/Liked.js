@@ -3,11 +3,12 @@ import SideNav from "../../Components/SideNav/SideNav"
 import { useAuth } from "../../Context/AuthContext";
 import Loader from "../../Components/Loader/Loader";
 import {Link} from "react-router-dom";
+import { removeFromLiked } from "../../Utils/likedVideos";
 
 export default function Liked(){
 
 
-    const {state, token} = useAuth();
+    const {state, token,dispatch} = useAuth();
 
  
 
@@ -22,10 +23,12 @@ export default function Liked(){
                         
                         <div className="video-player-home">
                             {video.items === undefined?<Loader/>:(<><iframe src={`https://www.youtube.com/embed/${video.items[0].id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div className="liked-video-title">
+                            <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title}</Link></p>
+                            </div>
+                            </>)}
                             
-                            <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title}</Link></p></>)}
-                            
-                            
+                            <button className="liked-video-remove-btn" onClick={()=>removeFromLiked(video, token, dispatch)}>Remove</button>
                         
                         </div>
                     )
