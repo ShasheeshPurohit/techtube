@@ -30,6 +30,11 @@
     
 }
 
+.video-player-details{
+    min-height: 4rem;
+    border-bottom: 1px solid transparent;
+}
+
 @media only screen and (max-width: 600px){
     .playlist-detail-nav{display: none;}
     .video-player{
