@@ -14,17 +14,14 @@ export default function Playlist(){
     return(
         <div>
             <div className="playlist-layout">
-                <div className="playlist-side-nav">
-                    <SideNav/>
-                </div>
                 <div className="playlist-display-section">
                     <div className="playlist-display-section-playlists">
                     {token?(state===undefined?<h1>Please login to see your playlists</h1>:(state.playlists === undefined?<Loader/>:(state.playlists.length<1?<h1>No Playlists found</h1>:(state.playlists.map((playlist)=>{
                        if(playlist.videos.length>=1){
                         return(
                             <div key={playlist._id} className="playlist-display-box">
-                                
-                                <img className="playlist-thumbnail" src={playlist.videos[0]===undefined? <Loader/> :(playlist.videos[0].items[0].snippet.thumbnails.standard.url)}></img>
+                                <div className="playlist-thumbnail-container">
+                                <img className="playlist-thumbnail" src={playlist.videos[0]===undefined? <Loader/> :(playlist.videos[0].items[0].snippet.thumbnails.standard.url)}></img></div>                                
                                 <p className="playlist-title"  onClick={()=>Navigate(`/playlist/${playlist.playlistName}`)}>{playlist.playlistName}</p>
                                 <button className="playlist-remove-btn" onClick={()=>deletePlaylistHandler(playlist.playlistName, token, dispatch)}>Remove</button>
                             </div>

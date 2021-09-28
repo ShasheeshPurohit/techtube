@@ -17,6 +17,11 @@ function App() {
     <div className="App">
       <Navbar/>
 
+    <div className="app-display">
+      <div className="sidebar">
+      <SideNav/>
+      </div>
+      <div className="video-area">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/videos/:videoId" element={<VideoDetail/>}/>
@@ -24,7 +29,9 @@ function App() {
         <Route path="/liked" element={<Liked/>}/>
         <Route path="/playlist/:playlistName" element={<PlaylistDetail/>}/>
       </Routes>
+      </div>
 
+      </div>
       <div className="bottom-nav">
         <BottomNav/>
       </div>

@@ -1,65 +1,51 @@
 .playlist-layout{
-    display: grid;
-    grid-template-columns: 0.18fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "nav vid vid vid"
-    "nav vid vid vid"
-    "nav vid vid vid";
-    /* justify-content: center; */
-    align-items: flex-start;
-    grid-column-gap: 1rem;
 }
+
 
 h1{
     word-break: normal;
 }
 
-.playlist-side-nav{
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(201, 0, 0);
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-}
 
 .playlist-display-section{
-    grid-area: vid;
-
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .playlist-display-section-playlists{
-   margin: 1rem;
+    margin: 1rem;
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
+    
 }
 
 .playlist-display-box{
     color: white;
     display: flex;
-    min-width: 14rem;
+    width: 18rem;
     flex-direction: column;
     align-items: center;
-    width: 20%;
-    height: 40%;
+    height: 20rem;
     border: 2px solid red;
     margin: 1rem;
     border-radius: 10px 5px 10px 5px;
     padding: 1rem;
 }
 
-
+.playlist-thumbnail-container{
+    width: 100%;
+    height: 15rem;
+}
 
 .playlist-thumbnail{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .playlist-title{
     font-size: 1.2rem;
+    margin-top: 0.5rem;
     cursor: pointer;
     text-transform: uppercase;
     border-bottom: 2px solid transparent;
@@ -84,25 +70,8 @@ h1{
     background-color: red;
 }
 
-
 @media only screen and (max-width: 600px){
-    .playlist-side-nav{display: none;}
-
-    .playlist-layout{
-        grid-template-areas: "vid vid vid vid"
-        "vid vid vid vid"
-        "vid vid vid vid";
-    }
-
-    .playlist-display-section{
-       width: 100vw;
-        /* align-items: c; */
-        /* justify-content: center; */
-    }
     .playlist-display-section-playlists{
-        margin: 2rem;
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
     }
 }

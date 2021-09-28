@@ -1,24 +1,4 @@
-.playlist-detail-layout{
-    display: grid;
-    grid-template-columns: 0.18fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "nav vid vid vid"
-    "nav vid vid vid"
-    "nav vid vid vid";
-    justify-content: center;
-    /* align-items: center; */
-   
-}
 
-.playlist-detail-nav{
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(201, 0, 0);
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-}
 
 .playlist-video-lists{
     grid-area: vid;

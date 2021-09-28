@@ -14,17 +14,14 @@ export default function Liked(){
 
     return (
         <div className="liked-layout">
-            <div className="liked-side-nav">
-                <SideNav/>
-            </div>
             <div className="liked-display-section">
                 {token?(state === undefined? <Loader/>:(state.likedVideos === undefined?<Loader/>:(state.likedVideos.length>0?((state.likedVideos.map((video)=>{
                     return(
                         
-                        <div className="video-player-home">
+                        <div className="video-player-liked">
                             {video.items === undefined?<Loader/>:(<><iframe src={`https://www.youtube.com/embed/${video.items[0].id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <div className="liked-video-title">
-                            <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title}</Link></p>
+                            <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title.substring(0,50)}</Link></p>
                             </div>
                             </>)}
                             

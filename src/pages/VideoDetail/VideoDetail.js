@@ -47,7 +47,21 @@ export default function VideoDetail(){
   // {displayVideo.items[0].snippet.title}  {displayVideo.items[0].snippet.channelTitle}
     return(
         <div className="video-detail-page">
-          {displayVideo === undefined ? <Loader/>:(<><iframe className="video-player-frame"  src={`https://www.youtube.com/embed/${displayVideo.items[0].id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {displayVideo === undefined ? <Loader/>:(
+          
+          <div className="video-container">
+          <div className="video-detail-player">  
+          <iframe
+          width='100%'
+          height='100%'
+          src={`https://www.youtube.com/embed/${displayVideo.items[0].id}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+        </div>
+          
                             <div className="video-player-detailPage">
                             <div className="video-card-details">
                           <p className="video-title-detailPage">{displayVideo.items[0].snippet.title}</p>
@@ -66,27 +80,29 @@ export default function VideoDetail(){
 
                             </div>
                             <div className="playlist-create-box" style={{height: playlistBox?"max-content":"0" , width:playlistBox?"18rem":"0"}}>
+                            {token?<div className="playlist-create-box" style={{height: playlistBox?"max-content":"0" , width:playlistBox?"18rem":"0"}}>
                               <input className="playlist-create-field" style={{visibility: playlistBox?"initial":"hidden"}} placeholder="Playlist name" onChange={(event)=>setNewPlaylistName(event.target.value)}></input>
                               <button className="playlist-create-button" style={{visibility: playlistBox?"initial":"hidden"}} onClick={()=>createPlaylist(newPlaylistName, token, dispatch)}>Create</button>
 
                               <div className="playlists-name-section">
                               <p style={{visibility: playlistBox?"initial":"hidden"}}>Existing Playlists:</p>
                               <ul className="playlist-name-list" style={{visibility: playlistBox?"initial":"hidden"}}>
-                              {state.playlists === undefined? <Loader/>: (state.playlists.length === 0? "No playlists":(state.playlists.map((playlist)=>{
+                              {token?(state.playlists === undefined? <Loader/>: (state.playlists.length === 0? "No playlists":(state.playlists.map((playlist)=>{
                                 return(<li><label className="playlist-item" >  
                                 <input type="checkbox"  onChange={()=>addToPlaylist(playlist.playlistName, displayVideo, token, dispatch)} />
                                    {playlist.playlistName}
                                 </label></li>)
-                              })))}
+                              })))):""}
                               </ul>
                               <button className="playlist-box-close-btn" style={{visibility: playlistBox?"initial":"hidden"}} onClick={()=>setPlaylistBox(!playlistBox)}>Close</button>
-                              </div>
                               
+                              </div>
+                              </div>:<p style={{visibility: playlistBox?"initial":"hidden", color:"white"}}>Login to see/create playlists</p>}
                             </div>
-                            {/* <div className="video-reviews-detailPage">
-                                <h1>Comments:</h1>
-                            </div> */}
-                            </>
+                            <div className="video-desc">
+                                <p>{displayVideo.items[0].snippet.description}</p>
+                            </div>
+                            </div>
                             )}
                           
                         </div>

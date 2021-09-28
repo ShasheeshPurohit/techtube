@@ -1,6 +1,7 @@
 .nav-panel-icons{
     display: flex;
     flex-direction: column;
+    width: 5rem;
 }
  
 .nav-panel-icons > i{

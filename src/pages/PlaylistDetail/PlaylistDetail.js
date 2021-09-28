@@ -26,9 +26,6 @@ export default function PlaylistDetail(){
 
     return(
         <div className="playlist-detail-layout">
-            <div className="playlist-detail-nav">
-                <SideNav/>
-            </div>
             <div className="playlist-video-lists">
             {state===undefined?<Loader/>:(playlist===undefined?<Loader/>:(playlist[0].videos.map((video)=>{
                return(
