@@ -5,7 +5,6 @@ import { baseurl } from "../Utils/apiCalls";
 const axios = require('axios');
 
 
-export const PlaylistContext = createContext();
 
 export const PlayListContext = createContext();
 

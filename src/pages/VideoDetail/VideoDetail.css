@@ -1,7 +1,7 @@
 .video-detail-page{
     position: relative;
     width: 100%;
-  
+    overflow-x: hidden;
     margin-bottom: 5rem;
 }
 
@@ -151,6 +151,7 @@
 .video-desc{
     /* background-color: red; */
     text-align: justify;
+    word-break: normal;
     height: max-content;
     margin-top: 2rem;
     padding: 0 1rem;

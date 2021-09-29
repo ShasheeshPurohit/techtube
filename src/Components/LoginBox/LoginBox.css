@@ -1,0 +1,22 @@
+.login-box{
+    padding: 0.5rem 0 1rem 0;
+    border-radius: 10px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    min-height: 8rem;
+    min-width: 16rem;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: visibility 0s linear 300ms, opacity 300ms;
+    z-index: 999;
+}
+
+.login-box > input{
+    outline: none;
+    margin-top: 1rem;
+    width: 70%;
+}

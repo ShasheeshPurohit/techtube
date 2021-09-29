@@ -10,7 +10,9 @@ export default function Navbar(){
   const {loginHandler, token, logoutHandler} = useAuth();
 
   const [loginBox, setLoginBox] = useState(false)
+  const [guestLoginBox, setGuestLoginBox] = useState(false)
   const [signupBox, setSignupBox] = useState(false)
+  
 
   const [loginUsername, setLoginUsername] = useState("")
   const [loginPassword, setLoginPassword] = useState("")
@@ -45,7 +47,7 @@ export default function Navbar(){
   <div className="container-fluid">
     <a className="navbar-brand brand-icons" href="#">
     {/* <i className="fas fa-bars nav-button"></i> */}
-     <Link className="brand-link" to="/"><i className="fab fa-youtube logo"></i></Link>TechTube
+     <Link className="brand-link" to="/"><i className="fab fa-youtube logo"></i>TechTube</Link>
     </a>
     <ul className="nav-list-mobile">
       {token?<li onClick={()=>logoutHandler()}>Logout</li>:(<>
@@ -58,6 +60,14 @@ export default function Navbar(){
       if(loginBox){
         setLoginBox(!loginBox)
       }}}>Sign up</li>
+      <li>|</li>
+      <li onClick={()=>{setGuestLoginBox(!guestLoginBox)
+      if(signupBox){
+        setSignupBox(!signupBox)
+      }
+      setLoginUsername("test")
+      setLoginPassword("test1234")
+      }}>Login As Guest</li>
       </>)}
       
     </ul>
@@ -68,6 +78,11 @@ export default function Navbar(){
       <button className="login-button auth-field" onClick={()=>{
         loginHandler (loginUsername, loginPassword)
         setLoginBox(!loginBox)}}>Login</button>
+    </div>
+    <div className="login-box" style={{visibility: guestLoginBox?"initial":"hidden"}}>    
+      <button className="login-button auth-field" onClick={()=>{
+        loginHandler (loginUsername, loginPassword)
+        setGuestLoginBox(!guestLoginBox)}}>Login as guest</button>
     </div>
     <div className="signup-box" style={{visibility: signupBox?"initial":"hidden"}}>
     <input className="signup-field auth-field" placeholder="Name" onChange={(event)=>setSignupName(event.target.value)}/>

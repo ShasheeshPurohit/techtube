@@ -33,7 +33,7 @@ export default function PlaylistDetail(){
                     <iframe src={`https://www.youtube.com/embed/${video.items[0].id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
                     <div className="video-player-details">
-                  <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title}</Link></p>
+                  <p className="video-title"><Link className="home-video-title" to={`/videos/${video._id}`}>{video.items[0].snippet.title.substring(0,50)}</Link></p>
                     </div>
                   <button className="playlist-remove-btn" onClick={()=>deleteVideoHandler(playlistName, video._id, token, dispatch)}>Remove</button>
                 </div>
