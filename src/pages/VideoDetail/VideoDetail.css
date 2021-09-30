@@ -185,6 +185,10 @@
     .video-detail-player{
         height: 20rem;
     }
+
+    .playlist-create-box{
+        top: 20%;
+    }
 }
 
 
