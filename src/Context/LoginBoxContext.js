@@ -20,7 +20,7 @@ export const LoginBoxProvider = ({children}) =>{
     const displayProp = loginShow == "displayOn"?LoginBoxContext.displayOn:LoginBoxContext.displayOff
 
     return(
-        <LoginBoxContext.Provider values = {{loginShow, setLoginShow, loginBoxProps}}>
+        <LoginBoxContext.Provider values = {{loginShow, setLoginShow, displayProp}}>
             {children}
         </LoginBoxContext.Provider>
     );

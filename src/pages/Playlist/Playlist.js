@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Components/Loader/Loader";
 import SideNav from "../../Components/SideNav/SideNav"
@@ -10,7 +11,6 @@ export default function Playlist(){
     const Navigate = useNavigate();
 
     
-    
     return(
         <div>
             <div className="playlist-layout">
@@ -18,6 +18,7 @@ export default function Playlist(){
                     <div className="playlist-display-section-playlists">
                     {token?(state===undefined?<h1>Please login to see your playlists</h1>:(state.playlists === undefined?<Loader/>:(state.playlists.length<1?<h1>No Playlists found</h1>:(state.playlists.map((playlist)=>{
                        if(playlist.videos.length>=1){
+                           
                         return(
                             <div key={playlist._id} className="playlist-display-box">
                                 <div className="playlist-thumbnail-container">
@@ -26,6 +27,9 @@ export default function Playlist(){
                                 <button className="playlist-remove-btn" onClick={()=>deletePlaylistHandler(playlist.playlistName, token, dispatch)}>Remove</button>
                             </div>
                         );
+                       }
+                       if(playlist.videos.length<1){
+                        deletePlaylistHandler(playlist.playlistName, token, dispatch)
                        }
                     }))))):<h1>Login to see your playlist</h1>}
                     </div>
