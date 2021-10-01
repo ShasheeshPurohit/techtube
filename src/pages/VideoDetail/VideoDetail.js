@@ -7,6 +7,8 @@ import Loader from "../../Components/Loader/Loader";
 import { useAuth } from "../../Context/AuthContext";
 import { addToLiked, removeFromLiked } from "../../Utils/likedVideos";
 import { addToPlaylist, createPlaylist } from "../../Functions/PlaylistFunctions";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const axios = require('axios')
 
 export default function VideoDetail(){
@@ -17,6 +19,9 @@ export default function VideoDetail(){
   const [playlistName, setPlaylistName] = useState("")
 
   const {state,dispatch,token} = useAuth();
+
+  const notifyLoginLike = () => toast.error("Login to like the video");
+  const notifyLoginPlaylist = () => toast.error("Login to create a playlist");
   
 
   useEffect(() => {
@@ -47,6 +52,7 @@ export default function VideoDetail(){
   // {displayVideo.items[0].snippet.title}  {displayVideo.items[0].snippet.channelTitle}
     return(
         <div className="video-detail-page">
+          <ToastContainer />
           {displayVideo === undefined ? <Loader/>:(
           
           <div className="video-container">
@@ -72,7 +78,7 @@ export default function VideoDetail(){
                             <div className="icon-buttons">
                             <i class="fas fa-plus playlist-button" onClick={()=>setPlaylistBox(!playlistBox)}></i>
                             <i class="fas fa-thumbs-up like-button" style={{color:item?.length>0 ? "red":"white"}} onClick={()=>{
-                              item.length>0 ? removeFromLiked(displayVideo, token, dispatch):addToLiked(displayVideo, token, dispatch)
+                              token?(item.length>0 ? removeFromLiked(displayVideo, token, dispatch):addToLiked(displayVideo, token, dispatch)):notifyLoginLike()
                             }}></i>
                           
                             </div>
