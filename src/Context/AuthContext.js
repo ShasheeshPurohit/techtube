@@ -96,8 +96,7 @@ export const AuthProvider = ({children}) => {
             return navigate("/")
         }
         }catch(error){
-            (error.response)
-            (error.response.data.status)
+            console.log(error.response)
         }
     }
     return(

@@ -131,10 +131,6 @@
     margin-right: 0.5rem;
 }
 
-.playlist-item{
-    display: flex;
-}
-
 .playlist-box-close-btn{
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -142,6 +138,13 @@
     border: none;
     color: white;
     padding: 0.2rem 0.5rem;
+}
+
+.playlist-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content
 }
 
 .playlist-box-close-btn:hover{

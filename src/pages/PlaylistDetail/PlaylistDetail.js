@@ -29,7 +29,7 @@ export default function PlaylistDetail(){
             <div className="playlist-video-lists">
             {state===undefined?<Loader/>:(playlist===undefined?<Loader/>:(playlist[0].videos.map((video)=>{
                return(
-                <div className="video-player-home">
+                <div className="video-player-home-playlist">
                     <iframe src={`https://www.youtube.com/embed/${video.items[0].id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
                     <div className="video-player-details">

@@ -12,11 +12,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <LoginBoxProvider>
-      <AuthProvider>
-      <PlayListProvider>
-      <App />
-      </PlayListProvider>
-      </AuthProvider>
+        <AuthProvider>
+          <PlayListProvider>
+            <App />
+          </PlayListProvider>
+        </AuthProvider>
       </LoginBoxProvider>
     </Router>
   </React.StrictMode>,
