@@ -93,7 +93,7 @@ export const AuthProvider = ({children}) => {
             // localStorage.setItem("login", JSON.stringify({loginStatus: true, token: response.data.token}));
             setToken(response.data.token)
             setLoginState("login success")
-            
+            return true
         }
         }catch(error){
             console.log(error.res)

@@ -3,9 +3,12 @@ import { Link } from "react-router-dom"
 import "./Navbar.css"
 import { useAuth } from "../../Context/AuthContext";
 import { baseurl } from "../../Utils/apiCalls";
+import { toast, ToastContainer } from "react-toastify";
 const axios = require('axios')
 
 export default function Navbar(){
+  const loginSuccess = () => toast.success("Succesfully logged in");
+  const loginFail = () => toast.success("Login Failed");
 
   const {loginHandler, token, logoutHandler} = useAuth();
 
@@ -33,7 +36,6 @@ export default function Navbar(){
             },
         });
         if(response.status === 200){
-            
             return loginHandler(username, password)
         }
     }
@@ -44,6 +46,9 @@ export default function Navbar(){
 
     return (
         <nav className="navbar navbar-dark bg-dark">
+
+          <ToastContainer/>
+
   <div className="container-fluid">
     <a className="navbar-brand brand-icons" href="#">
     {/* <i className="fas fa-bars nav-button"></i> */}
@@ -61,7 +66,10 @@ export default function Navbar(){
         setLoginBox(!loginBox)
       }}}>Sign up</li>
       <li>|</li>
-      <li onClick={()=>{loginHandler ("test", "test1234")}}>Login As Guest</li>
+      <li onClick={()=>{if(loginHandler ("test", "test1234")){
+        loginSuccess()
+      }
+    }}>Login As Guest</li>
       </>)}
       
     </ul>
@@ -73,6 +81,10 @@ export default function Navbar(){
         loginHandler (loginUsername, loginPassword)
         setLoginBox(!loginBox)}}>Login</button>
     </div>
+
+
+
+    
     <div className="signup-box" style={{visibility: signupBox?"initial":"hidden"}}>
     <input className="signup-field auth-field" placeholder="Name" onChange={(event)=>setSignupName(event.target.value)}/>
     <input className="signup-field auth-field"  placeholder="Username" onChange={(event)=>setSignupUsername(event.target.value)}/>
