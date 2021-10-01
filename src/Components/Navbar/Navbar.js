@@ -61,13 +61,7 @@ export default function Navbar(){
         setLoginBox(!loginBox)
       }}}>Sign up</li>
       <li>|</li>
-      <li onClick={()=>{setGuestLoginBox(!guestLoginBox)
-      if(signupBox){
-        setSignupBox(!signupBox)
-      }
-      setLoginUsername("test")
-      setLoginPassword("test1234")
-      }}>Login As Guest</li>
+      <li onClick={()=>{loginHandler ("test", "test1234")}}>Login As Guest</li>
       </>)}
       
     </ul>
@@ -78,11 +72,6 @@ export default function Navbar(){
       <button className="login-button auth-field" onClick={()=>{
         loginHandler (loginUsername, loginPassword)
         setLoginBox(!loginBox)}}>Login</button>
-    </div>
-    <div className="login-box" style={{visibility: guestLoginBox?"initial":"hidden"}}>    
-      <button className="login-button auth-field" onClick={()=>{
-        loginHandler (loginUsername, loginPassword)
-        setGuestLoginBox(!guestLoginBox)}}>Login as guest</button>
     </div>
     <div className="signup-box" style={{visibility: signupBox?"initial":"hidden"}}>
     <input className="signup-field auth-field" placeholder="Name" onChange={(event)=>setSignupName(event.target.value)}/>
