@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import {playlist} from "../../data"
 import "./VideoDetail.css"
@@ -6,7 +6,7 @@ import { baseurl } from "../../Utils/apiCalls";
 import Loader from "../../Components/Loader/Loader";
 import { useAuth } from "../../Context/AuthContext";
 import { addToLiked, removeFromLiked } from "../../Utils/likedVideos";
-import { addToPlaylist, createPlaylist } from "../../Functions/PlaylistFunctions";
+import { addToPlaylist, createPlaylist, deleteVideoHandler } from "../../Functions/PlaylistFunctions";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const axios = require('axios')
@@ -20,8 +20,9 @@ export default function VideoDetail(){
 
   const {state,dispatch,token} = useAuth();
 
-  const notifyLoginLike = () => toast.error("Login to like the video");
-  const notifyLoginPlaylist = () => toast.error("Login to create a playlist");
+  const toastId = useRef(null)
+
+
   
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function VideoDetail(){
   // {displayVideo.items[0].snippet.title}  {displayVideo.items[0].snippet.channelTitle}
     return(
         <div className="video-detail-page">
-          <ToastContainer />
+
           {displayVideo === undefined ? <Loader/>:(
           
           <div className="video-container">
@@ -76,9 +77,16 @@ export default function VideoDetail(){
                             <div className="video-author-details">
                             <p className="video-author-name">{displayVideo.items[0].snippet.channelTitle}</p>
                             <div className="icon-buttons">
-                            <i class="fas fa-plus playlist-button" onClick={()=>setPlaylistBox(!playlistBox)}></i>
+                            <i class="fas fa-plus playlist-button" onClick={()=>{
+                              if(token){
+                              setPlaylistBox(!playlistBox)
+                            }else{
+                              toast.info("Login to create playlists")
+                            }
+                            
+                            }}></i>
                             <i class="fas fa-thumbs-up like-button" style={{color:item?.length>0 ? "red":"white"}} onClick={()=>{
-                              token?(item.length>0 ? removeFromLiked(displayVideo, token, dispatch):addToLiked(displayVideo, token, dispatch)):notifyLoginLike()
+                              token?(item.length>0 ? removeFromLiked(displayVideo, token, dispatch):addToLiked(displayVideo, token, dispatch)):toast.info("Login to like the video")
                             }}></i>
                           
                             </div>
@@ -93,9 +101,15 @@ export default function VideoDetail(){
                               <div className="playlists-name-section">
                               <p style={{visibility: playlistBox?"initial":"hidden"}}>Existing Playlists:</p>
                               <ul className="playlist-name-list" style={{visibility: playlistBox?"initial":"hidden"}}>
-                              {state===undefined?<Loader/>:(token?(state.playlists === undefined? <Loader/>: (state.playlists.length === 0? "No playlists":(state.playlists.map((playlist)=>{
-                                return(<li><p className="playlist-item" >  
-                                <input type="checkbox"  onChange={()=>addToPlaylist(playlist.playlistName, displayVideo, token, dispatch)} />
+                              {state===undefined?<Loader/>:(token?(state?.playlists === undefined? <Loader/>: (state?.playlists?.length === 0? "No playlists":(state.playlists.map((playlist)=>{
+                                return(<li><p className="playlist-item" > 
+                                {/* {console.log(playlist.videos.some((video)=>video._id===displayVideo._id))} */}
+                                {playlist.videos.some((video)=>video._id===displayVideo._id)?
+                                <input type="checkbox"  checked={playlist.videos.some((video)=>video._id===displayVideo._id)} onClick={(event)=>{
+                                  event.target.checked = false
+                                  deleteVideoHandler(playlist.playlistName, videoId, token, dispatch)}}  />
+                                :<input type="checkbox" onChange={()=>addToPlaylist(playlist.playlistName, displayVideo, token, dispatch)}/>} 
+                                {/* <input type="checkbox"  checked={playlist.videos.some((video)=>video._id===displayVideo._id)} onChange={()=>addToPlaylist(playlist.playlistName, displayVideo, token, dispatch)}  /> */}
                                    {playlist.playlistName}
                                 </p></li>)
                               })))):"")}

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { baseurl } from "../Utils/apiCalls";
 
 export const deletePlaylistHandler = async (playlistName, token, dispatch) => {
@@ -6,6 +7,7 @@ export const deletePlaylistHandler = async (playlistName, token, dispatch) => {
     headers: { authorization: token },
   });
   if(response.status === 200){
+
     dispatch({ type: "REMOVE_PLAYLIST", payload: playlistName })
   }
 };
@@ -17,6 +19,7 @@ export const deleteVideoHandler = async (playlistName, videoId, token,dispatch) 
       { headers: { authorization: token } }
     );
     if(response.status === 200){
+      toast.success("Video Removed")
       dispatch({type: "REMOVE_FROM_PLAYLIST", payload:{playlistName, videoId}})
     }
   } catch (error) {
@@ -33,6 +36,7 @@ export const addToPlaylist = async (playlistName, video, token, dispatch) => {
       { headers: { authorization: token } }
     );
     if(response.status === 200){
+      toast.success("Added to playlist")
       dispatch({type: "ADD-VIDEO-TO-PLAYLIST", payload: {playlistName, videoObj: video }})
     }
   } catch (error) {
@@ -52,6 +56,7 @@ export const createPlaylist = async (playlistName, token, dispatch) => {
     );
     if(response.status === 200){
       dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playlistName })
+      toast.success("Playlist created")
     }
   } catch (error) {
     // (error.response);

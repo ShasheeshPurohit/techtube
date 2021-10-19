@@ -11,6 +11,7 @@ import Liked from './pages/LikedVideos/Liked';
 import PlaylistDetail from './pages/PlaylistDetail/PlaylistDetail';
 import SideNav from './Components/SideNav/SideNav';
 import BottomNav from './Components/BottomNav/BottomNav';
+import {ToastContainer} from "react-toastify"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/liked" element={<Liked/>}/>
         <Route path="/playlist/:playlistName" element={<PlaylistDetail/>}/>
       </Routes>
+      <ToastContainer position="top-right" theme="dark" autoClose={3000} />
       </div>
 
       </div>

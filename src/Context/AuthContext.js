@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router";
 import { reducerFunc } from "./Reducers/reducerFunction";
 import { baseurl } from "../Utils/apiCalls";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext()
 
@@ -89,14 +90,19 @@ export const AuthProvider = ({children}) => {
         })
         setLoginState(response.data.status)
         if(response.data.status === "login success"){ 
+            toast.success("Logged in successfully")
             localStorage.setItem("token", JSON.stringify( response.data.token));
             // localStorage.setItem("login", JSON.stringify({loginStatus: true, token: response.data.token}));
             setToken(response.data.token)
             setLoginState("login success")
-            return true
+            
+        }
+        if(response.data.status==="User not found"){
+          return toast.error("Wrong username or password")
         }
         }catch(error){
-            console.log(error.res)
+          toast.error("Wrong username or password")
+        
         }
     }
     return(
