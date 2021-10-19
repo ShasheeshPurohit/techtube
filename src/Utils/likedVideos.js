@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify';
 import { baseurl } from './apiCalls';
 
 export const addToLiked = async (video, token, dispatch) => {
@@ -9,7 +10,7 @@ export const addToLiked = async (video, token, dispatch) => {
     { headers: { authorization: token } }
     )
     if(response.status === 200){
-        // ("video Added to liked!")
+        toast.success("Liked")
         dispatch({type: "ADD_TO_LIKED", payload: video })
       }
     }catch(error){
@@ -25,7 +26,7 @@ export const removeFromLiked = async (video, token, dispatch) => {
     { headers: { authorization: token } }
     )
     if(response.status === 200){
-        // ("hatadiyaa bhai jo nahi pasand")
+        toast.success("Removed from liked")
         dispatch({type: "REMOVE_FROM_LIKED", payload: video })
       }
     }catch(error){
