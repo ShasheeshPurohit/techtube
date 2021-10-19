@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {PlayListProvider} from "./Context/PlaylistContext"
 import { AuthProvider } from './Context/AuthContext';
 import {LoginBoxProvider} from "./Context/LoginBoxContext";
-import "react-toastify/dist/ReactToastify.css";
+
 
 ReactDOM.render(
   <React.StrictMode>

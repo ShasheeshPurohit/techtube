@@ -7,8 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 const axios = require('axios')
 
 export default function Navbar(){
-  const loginSuccess = () => toast.success("Succesfully logged in");
-  const loginFail = () => toast.success("Login Failed");
+ 
 
   const {loginHandler, token, logoutHandler} = useAuth();
 
@@ -36,6 +35,7 @@ export default function Navbar(){
             },
         });
         if(response.status === 200){
+            toast.success("Signed up successfully")
             return loginHandler(username, password)
         }
     }
@@ -47,7 +47,7 @@ export default function Navbar(){
     return (
         <nav className="navbar navbar-dark bg-dark">
 
-          <ToastContainer/>
+      
 
   <div className="container-fluid">
     <a className="navbar-brand brand-icons" href="#">
@@ -66,10 +66,7 @@ export default function Navbar(){
         setLoginBox(!loginBox)
       }}}>Sign up</li>
       <li>|</li>
-      <li onClick={()=>{if(loginHandler ("test", "test1234")){
-        loginSuccess()
-      }
-    }}>Login As Guest</li>
+      <li onClick={()=>loginHandler("test","test1234")}>Login As Guest</li>
       </>)}
       
     </ul>
